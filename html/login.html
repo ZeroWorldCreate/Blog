@@ -1,0 +1,98 @@
+<style>
+    .where {
+        position: absolute;
+        top: 30px;
+        right: calc(50% - 250px);
+    }
+
+    .box {
+        background-color: rgba(214, 255, 255, 0.205);
+
+        width: 500px;
+        height: 300px;
+
+        border-radius: 10px;
+    }
+
+    .input {
+        width: 300px;
+
+        position: relative;
+        top: 10px;
+        margin: 0 auto;
+    }
+
+    .middle_interactive {
+        position: relative;
+        left: 8px;
+
+        color: rgba(244, 255, 254, 0.753);
+    }
+
+    .ifRememberCheck {
+        float: left;
+    }
+
+    .register {
+        float: right;
+    }
+
+    .interactive {
+        position: relative;
+        top: 45px;
+    }
+</style>
+<script type="text/template" id="userHtml">
+    <a class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#user_info'}">
+            <i class='mdui-icon'><img id='headimg' style='width: 24px' /></i>
+    </a>
+    <ul class="mdui-menu mdui-menu-cascade" id="user_info">
+        <li class="mdui-menu-item">
+            <i class='mdui-icon'><img id='headimg' style='width: 64px' /></i>
+        </li>
+        <li class="mdui-divider"></li>
+        <li class="mdui-menu-item">
+            <a href="#settimg" class="mdui-ripple" onclick="Update_Page('editHeadimg.html', false, true)">个人信息 Setting</a>
+            <input type="file" id="uploadImg" accept=".jpg,.jpeg,.png,.gif,.bmp" onchange="uploadImg()">
+        </li>
+        <li class="mdui-divider"></li>
+        <li class="mdui-menu-item">
+            <a class="mdui-ripple">登出 Sign out<i class="mdui-menu-item-icon mdui-icon material-icons" style='float: right; margin: 4px'>&#xe879;</i></a>
+        </li>
+    </ul>
+</script>
+<div id="login">
+    <div class="where">
+        <div class="box mdui-shadow-4 mdui-hoverable">
+            <div class="input">
+                <div class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe853;</i>
+                    <label class="mdui-textfield-label">Username/Email</label>
+                    <input id="U_Ename" class="mdui-textfield-input" type="text" required></input>
+                </div>
+                <div class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe897;</i>
+                    <label class="mdui-textfield-label">Password</label>
+                    <input id="pwd" class="mdui-textfield-input" type="password" required></input>
+                </div>
+            </div>
+            <div class="middle_interactive input">
+                <div class="ifRememberCheck mdui-hoverable">
+                    <label class="mdui-checkbox">
+                        <input type="checkbox">
+                        <i class="mdui-checkbox-icon"></i>
+                        <a mdui-tooltip="{content: '记住我', delay: 400}">Remember ME</a>
+                    </label>
+                </div>
+                <div class="register">
+                    <a href="#register" class="mdui-btn mdui-hoverable"
+                        onclick="Update_Page('register.html', false, false)">Register</a>
+                </div>
+            </div>
+            <div class="interactive input">
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple"
+                    style="width: 100%;" onclick="login()">登录/Login</button>
+            </div>
+        </div>
+    </div>
+</div>

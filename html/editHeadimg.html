@@ -1,0 +1,51 @@
+<style>
+    .editWhere {
+        position: absolute;
+        top: 30px;
+        right: calc(50% - 391px);
+    }
+
+    #editBack{
+        background-color: rgba(255, 255, 255, 0.7);
+
+        width: 800px;
+        height: 600px;
+
+        border-radius: 10px;
+    }
+
+    #editShow{
+        width: 64px;
+        height: 64px;
+    }
+</style>
+<script>
+    var $image = $('#editShow');
+    var options = {
+        aspectRatio: 1 / 1,
+        crop: function(){}
+    };
+    $(document).ready(function () {
+        $('#editHeadimg').css({'top': 500});
+        $('#editHeadimg').animate({
+            'top': '0'
+        }, 500);
+
+        // 异步加载图片
+        var reader = new FileReader();
+        var imgFile;
+        reader.onload = function (e) {
+            imgFile = e.target.result;
+            $('#editShow').attr('src', imgFile)
+        };
+        reader.readAsDataURL(headimgData);
+        headimgData = null;
+    });
+</script>
+<div id="editHeadimg">
+    <div class="editWhere">
+        <div id="editBack">
+            <i class='mdui-icon'><img id="editShow" src="" alt="headImg"/></i>
+        </div>
+    </div>
+</div>

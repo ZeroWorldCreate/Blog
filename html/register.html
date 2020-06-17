@@ -1,0 +1,82 @@
+<style>
+    .where {
+        position: absolute;
+        top: 30px;
+        right: calc(50% - 250px);
+    }
+
+    .box {
+        background-color: rgba(214, 255, 255, 0.205);
+
+        width: 500px;
+        height: 530px;
+
+        border-radius: 10px;
+    }
+
+    .input {
+        width: 300px;
+
+        position: relative;
+        top: 10px;
+        margin: 0 auto;
+    }
+
+    .middle_interactive {
+        position: relative;
+        left: 8px;
+
+        color: rgba(244, 255, 254, 0.753);
+    }
+
+    .login {
+        float: right;
+    }
+
+    .interactive {
+        position: relative;
+        top: 45px;
+    }
+</style>
+<div id="register">
+    <div class="where">
+        <div class="box mdui-shadow-4 mdui-hoverable">
+            <div class="input">
+                <div id="d_Username" class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe853;</i>
+                    <label class="mdui-textfield-label">Username</label>
+                    <input id="username" class="mdui-textfield-input" type="text" required></input>
+                    <div class="mdui-textfield-error">账户名已被注册</div>
+                </div>
+                <div id="d_Email" class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe0be;</i>
+                    <label class="mdui-textfield-label">Email</label>
+                    <input id="Email" class="mdui-textfield-input" type="email" required />
+                    <div class="mdui-textfield-error">邮箱格式错误</div>
+                </div>
+                <div id="d_first_pwd" class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe897;</i>
+                    <label class="mdui-textfield-label">Password</label>
+                    <input id="pwd_first" class="mdui-textfield-input" type="password"
+                        pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[0-9]).*$" required />
+                    <div class="mdui-textfield-error">密码至少 6 位，且包含小写字母与任意数字</div>
+                </div>
+                <div id="d_second_pwd" class="mdui-textfield mdui-textfield-floating-label">
+                    <i class="mdui-icon material-icons">&#xe897;</i>
+                    <label class="mdui-textfield-label">VerifyPassword</label>
+                    <input id="pwd_second" class="mdui-textfield-input" type="password" required></input>
+                    <div class="mdui-textfield-error">与第一次输入的密码不一致</div>
+                </div>
+            </div>
+            <div class="middle_interactive input">
+                <div class="login">
+                    <a href="#login" class="mdui-btn mdui-hoverable" onclick="Update_Page('login.html', false, false)">Login</a>
+                </div>
+            </div>
+            <div class="interactive input">
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-deep-purple" style="width: 100%;"
+                    onclick="Verify()">注册/Register</button>
+            </div>
+        </div>
+    </div>
+</div>

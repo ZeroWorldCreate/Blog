@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>噢~瞧你发现了什么！</title>
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <link rel="stylesheet" href="css/cropper.css">
+    <script src="js/mdui.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/sha256.js"></script>
+    <script src="js/cropper.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<script>
+    $(document).ready(function () {
+        Update_Page('index.html', false, false);
+        var urlpath = window.location.href
+        var isAdmin = false;
+        var how = urlpath.split('?')[1]
+        if (how == 'how=admin'){
+            isAdmin = true
+            Update_Page('index.html', true, false);
+        }
+    });
+</script>
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    #MainPageContext {
+        width: 100%;
+        height: calc(100% - 112px);
+
+        background-image: url(./img/background.jpg);
+        background-size: 100% 100%;
+
+        position: absolute;
+        margin: 0px;
+
+    }
+
+    #PageContext {
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+
+        /* background-color: white; */
+    }
+
+    #shade{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        background-color: rgba(0, 0, 0, 0.6);
+
+        width: 100%;
+        height: 100%;
+
+        z-index: 100;
+    }
+
+    /* #BottomPageContext {
+        width: 100%;
+        height: 200px;
+    } */
+</style>
+
+<body class="mdui-appbar-with-toolbar mdui-appbar-with-tab">
+    <!--顶部工具栏 --- 开始-->
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-deep-purple">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">menu</i></a>
+            <a id="applyTitle" href="javascript:;" class="mdui-typo-title">Alimo1029's Bugs - Guest</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <div id="handleUser">
+                <a href="#login" class="mdui-btn mdui-btn-icon" onclick="Update_Page('login.html', false, false)">
+                    <i class="mdui-icon material-icons" mdui-tooltip="{content: '登录', delay: 400}">&#xe853;</i>
+                    <!--<i class='mdui-icon'><img src='users/limo1029/headimg/headimg.jpg' /></i>-->
+                </a>
+            </div>
+            <a class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#more_vert'}">
+                <i class="mdui-icon material-icons">&#xe5d4;</i>
+            </a>
+            <ul class="mdui-menu mdui-menu-cascade" id="more_vert">
+                <li class="mdui-menu-item">
+                    <a href="javascript:;" class="mdui-ripple">关于</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="javascript:;" class="mdui-ripple">申请权限</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mdui-tab mdui-color-deep-purple" mdui-tab>
+            <a href="#index" class="mdui-ripple mdui-ripple-white" onclick="Update_Page('index.html', false, false)">首页</a>
+            <a href="#dynamic" class="mdui-ripple mdui-ripple-white" onclick="Update_Page('dynamic.html', false, false)">动态</a>
+            <a href="#friends" class="mdui-ripple mdui-ripple-white" onclick="Update_Page('friends.html', false, false)">友情♂链接</a>
+            <a href="#dry_object" class="mdui-ripple mdui-ripple-white" onclick="Update_Page('dryObject.html', false, false)">干货</a>
+            <a href="#about" class="mdui-ripple mdui-ripple-white" onclick="Update_Page('about.html', false, false)">关于</a>
+        </div>
+    </div>
+    <!--顶部工具栏 --- 结束-->
+
+    <!--主要内容页面 --- 开始-->
+    <div id="MainPageContext" class="mdui-container-flui">
+        <div style="background-color: rgba(0, 0, 0, 0.267); width: 100%; height: 100%;">
+            <!--非固定页面内容 --- 开始-->
+            <div id="PageContext" style="overflow-y: auto; overflow-x: hidden;">
+
+            </div>
+            <!--非固定页面内容 --- 结束-->
+            <!--遮罩层 --- 开始-->
+            <div id="shade" style="display: none;">
+
+            </div>
+
+
+            <!--底部固定页面 --- 开始-->
+            <!--暂时不开发！！！！-->
+            <!-- <div id="BottomPageContext" class="mdui-color-grey-800">
+
+        </div> -->
+            <!--底部固定页面 --- 结束-->
+
+
+
+
+        </div>
+    </div>
+    <!--主要内容页面 --- 结束-->
+</body>
+
+</html>
